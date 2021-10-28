@@ -22,9 +22,6 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("=======start=========");
         try{
-            byte[] da = new byte[2];
-            da[1] = 17;
-            System.out.println(ToolByteArray.getInt(da, 0, 2));
             testDemo();
         }catch (Exception e){
             e.printStackTrace();
@@ -46,6 +43,7 @@ public class Main {
             byte[] innerData = ArrayUtil.sub(data, i*16*1024, (i+1)*16*1024);
             TypeFspHdr typeFspHdr = HandlerManager.doHandle(innerData, TypeFspHdr.class);
             System.out.println(typeFspHdr.getFileHeader().toString());
+            if(i == 0)System.out.println(typeFspHdr.getFileSpaceHeader().toString());
         }
     }
 

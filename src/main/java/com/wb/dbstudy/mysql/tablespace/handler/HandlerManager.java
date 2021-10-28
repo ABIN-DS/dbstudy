@@ -49,6 +49,6 @@ public class HandlerManager {
         if (handler == null) {
             throw new HandlerNotFoundException(clazz);
         }
-        return (T) handler.parse(ArrayUtil.sub(data, 38, data.length));
+        return (T) handler.parse(ArrayUtil.sub(data, 0, data.length));
     }
 }
