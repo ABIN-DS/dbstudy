@@ -3,6 +3,7 @@ package com.wb.dbstudy.mysql.tablespace.bean;
 import cn.hutool.core.util.ArrayUtil;
 import com.wb.dbstudy.mysql.tablespace.bean.page.FileHeader;
 import com.wb.dbstudy.mysql.tablespace.bean.page.FileTrailer;
+import com.wb.dbstudy.mysql.tablespace.beanfactory.BasicBeanFactory;
 import lombok.Data;
 
 /**
@@ -21,6 +22,7 @@ public class Page {
     public Page(){}
 
     public Page(byte[] data){
-        this.fileHeader = new FileHeader(ArrayUtil.sub(data, 0, 38));
+        this.fileHeader = BasicBeanFactory.createBeanByAllocate(ArrayUtil.sub(data, 0, 38), FileHeader.class);
+        this.fileTrailer = BasicBeanFactory.createBeanByAllocate(ArrayUtil.sub(data, 16*1024-8, 16*1024), FileTrailer.class);
     }
 }

@@ -1,9 +1,8 @@
 package com.wb.dbstudy.mysql.tablespace.bean.typefsphdr;
 
-import cn.hutool.core.util.ArrayUtil;
 import com.wb.dbstudy.mysql.tablespace.bean.typefsphdr.filespaceheader.ListBaseNode;
+import com.wb.dbstudy.mysql.tablespace.beanfactory.ByteAllocate;
 import com.wb.dbstudy.mysql.tablespace.type.ByteArr;
-import com.wb.dbstudy.mysql.tablespace.util.ToolByteArray;
 import lombok.Data;
 
 /**
@@ -15,7 +14,7 @@ import lombok.Data;
  * @date 2021/10/24 5:51 下午
  */
 @Data
-public class FileSpaceHeader {
+public class FileSpaceHeader implements ByteAllocate {
     ByteArr spaceId;
     ByteArr notUsed;
     ByteArr size;
@@ -29,18 +28,10 @@ public class FileSpaceHeader {
     ListBaseNode segInodesFullList;
     ListBaseNode segInodesFreeList;
 
-    public FileSpaceHeader(byte[] data) {
-        this.spaceId = new ByteArr(data, 0, 4);
-        this.notUsed = new ByteArr(data, 4, 4);
-        this.size = new ByteArr(data, 8, 4);
-        this.freeLimit = new ByteArr(data, 12, 4);
-        this.spaceFlags = new ByteArr(data, 16, 4);
-        this.fragNUsed = new ByteArr(data, 20, 4);
-        this.freeList = new ListBaseNode(ArrayUtil.sub(data, 24, 16));
-        this.freeFragList = new ListBaseNode(ArrayUtil.sub(data, 40, 16));
-        this.fullFragList = new ListBaseNode(ArrayUtil.sub(data, 56, 16));
-        this.nextUnusedSegmentId = new ByteArr(data, 72, 8);
-        this.segInodesFullList = new ListBaseNode(ArrayUtil.sub(data, 80, 16));
-        this.segInodesFreeList = new ListBaseNode(ArrayUtil.sub(data, 96, 16));
+    public FileSpaceHeader(){}
+
+    @Override
+    public int[] getAllocateArr() {
+        return new int[]{4, 4, 4, 4, 4, 4, 16, 16, 16, 8, 16, 16};
     }
 }

@@ -4,6 +4,8 @@ import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.ArrayUtil;
 import com.wb.dbstudy.mysql.tablespace.bean.IndexPage;
 import com.wb.dbstudy.mysql.tablespace.bean.TypeFspHdr;
+import com.wb.dbstudy.mysql.tablespace.bean.typefsphdr.filespaceheader.ListBaseNode;
+import com.wb.dbstudy.mysql.tablespace.beanfactory.ByteAllocate;
 import com.wb.dbstudy.mysql.tablespace.handler.HandlerManager;
 import com.wb.dbstudy.mysql.tablespace.util.ToolByteArray;
 
@@ -43,6 +45,8 @@ public class Main {
             byte[] innerData = ArrayUtil.sub(data, i*16*1024, (i+1)*16*1024);
             TypeFspHdr typeFspHdr = HandlerManager.doHandle(innerData, TypeFspHdr.class);
             System.out.println(typeFspHdr.getFileHeader().toString());
+            System.out.println(typeFspHdr.getFileTrailer().toString());
+
             if(i == 0)System.out.println(typeFspHdr.getFileSpaceHeader().toString());
         }
     }
