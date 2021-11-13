@@ -1,15 +1,12 @@
-package com.wb.dbstudy.mysql.tablespace.bean.indexpage;
-
-import lombok.Data;
+package com.wb.dbstudy.mysql.tablespace.bean.index;
 
 /**
  * @author wangbin
  * @version v1.0.0
- * @title UserRecords
+ * @title Supremum
  * @description TODO
  * @email wangbin69@guazi.com
  * @date 2021/10/24 9:16 上午
  */
-@Data
-public class UserRecords {
+public class Supremum {
 }

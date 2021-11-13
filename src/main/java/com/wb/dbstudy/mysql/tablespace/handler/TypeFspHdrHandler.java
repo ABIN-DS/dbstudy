@@ -1,6 +1,5 @@
 package com.wb.dbstudy.mysql.tablespace.handler;
 
-import com.wb.dbstudy.mysql.tablespace.bean.IndexPage;
 import com.wb.dbstudy.mysql.tablespace.bean.TypeFspHdr;
 import com.wb.dbstudy.mysql.tablespace.bean.page.FileHeader;
 

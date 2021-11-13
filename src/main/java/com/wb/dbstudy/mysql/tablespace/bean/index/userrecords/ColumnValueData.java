@@ -1,4 +1,4 @@
-package com.wb.dbstudy.mysql.tablespace.bean.indexpage.userrecords;
+package com.wb.dbstudy.mysql.tablespace.bean.index.userrecords;
 
 import lombok.Data;
 

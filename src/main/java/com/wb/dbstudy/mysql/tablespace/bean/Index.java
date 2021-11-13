@@ -1,7 +1,6 @@
 package com.wb.dbstudy.mysql.tablespace.bean;
 
-import cn.hutool.core.util.ArrayUtil;
-import com.wb.dbstudy.mysql.tablespace.bean.indexpage.*;
+import com.wb.dbstudy.mysql.tablespace.bean.index.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -15,7 +14,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper=false)
-public class IndexPage extends Page{
+public class Index extends Page{
     PageHeader pageHeader;
     Infimum infimum;
     Supremum supremum;
@@ -23,7 +22,7 @@ public class IndexPage extends Page{
     FreeSpace freeSpace;
     PageDirectory pageDirectory;
 
-    public IndexPage(byte[] data){
+    public Index(byte[] data){
         super(data);
     }
 }

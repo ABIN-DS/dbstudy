@@ -20,4 +20,13 @@ public class ToolByteArray {
         }
         return ArrayUtil.sub(source, startIndex, startIndex+byteCount);
     }
+
+    public static boolean isEmpth(byte[] source){
+        for(byte temp: source){
+            if(temp != 0){
+                return false;
+            }
+        }
+        return true;
+    }
 }

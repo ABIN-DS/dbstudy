@@ -1,4 +1,4 @@
-package com.wb.dbstudy.mysql.tablespace.bean.indexpage;
+package com.wb.dbstudy.mysql.tablespace.bean.index;
 
 /**
  * @author wangbin

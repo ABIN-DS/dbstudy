@@ -1,12 +1,12 @@
-package com.wb.dbstudy.mysql.tablespace.bean.indexpage;
+package com.wb.dbstudy.mysql.tablespace.bean.index;
 
 /**
  * @author wangbin
  * @version v1.0.0
- * @title Infimum
+ * @title PageHeader
  * @description TODO
  * @email wangbin69@guazi.com
  * @date 2021/10/24 9:16 上午
  */
-public class Infimum {
+public class PageHeader {
 }

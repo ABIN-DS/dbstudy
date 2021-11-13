@@ -1,7 +1,7 @@
 package com.wb.dbstudy.mysql.tablespace.handler;
 
 import com.wb.dbstudy.mysql.tablespace.bean.page.FileHeader;
-import com.wb.dbstudy.mysql.tablespace.bean.IndexPage;
+import com.wb.dbstudy.mysql.tablespace.bean.Index;
 
 /**
  * @author wangbin
@@ -11,11 +11,11 @@ import com.wb.dbstudy.mysql.tablespace.bean.IndexPage;
  * @email wangbin69@guazi.com
  * @date 2021/10/24 11:00 上午
  */
-public class IndexPageHandler implements PageHandler<IndexPage> {
+public class IndexPageHandler implements PageHandler<Index> {
     @Override
-    public IndexPage parse(byte[] data) {
+    public Index parse(byte[] data) {
         System.out.println("parse IndexPage");
-        return new IndexPage(data);
+        return new Index(data);
     }
 
     @Override
