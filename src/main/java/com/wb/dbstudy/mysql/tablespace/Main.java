@@ -2,7 +2,9 @@ package com.wb.dbstudy.mysql.tablespace;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.ArrayUtil;
+import com.wb.dbstudy.mysql.tablespace.bean.Page;
 import com.wb.dbstudy.mysql.tablespace.bean.TypeFspHdr;
+import com.wb.dbstudy.mysql.tablespace.constant.Constant;
 import com.wb.dbstudy.mysql.tablespace.handler.HandlerManager;
 
 import java.io.File;
@@ -34,16 +36,13 @@ public class Main {
         String dbStudy = classpath.substring(0, classpath.lastIndexOf("dbstudy")+7);
         byte[] data = FileUtil.readBytes(new File(dbStudy+"/data/demo.ibd"));
 
-        System.out.println("demo byte.len="+data.length+",size/16kb="+(data.length/(16*1024)));
+        System.out.println("byte.len="+data.length+",size/16kb="+(data.length/(Constant.DEFAULT_PAGE_BYTE_COUNT)));
 
         //解析TYPE FSP HDR页面
         for(int i=0; i<6; ++i){
-            byte[] innerData = ArrayUtil.sub(data, i*16*1024, (i+1)*16*1024);
-            TypeFspHdr typeFspHdr = HandlerManager.doHandle(innerData, TypeFspHdr.class);
-            System.out.println(typeFspHdr.getFileHeader().toString());
-            System.out.println(typeFspHdr.getFileTrailer().toString());
-
-            if(i == 0)System.out.println(typeFspHdr.getFileSpaceHeader().toString());
+            byte[] innerData = ArrayUtil.sub(data, i*Constant.DEFAULT_PAGE_BYTE_COUNT, (i+1)*Constant.DEFAULT_PAGE_BYTE_COUNT);
+            Class<? extends Page> clazz = HandlerManager.getClass(innerData);
+            System.out.println(HandlerManager.doHandle(innerData, clazz));
         }
     }
 

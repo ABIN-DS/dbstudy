@@ -1,7 +1,6 @@
 package com.wb.dbstudy.mysql.tablespace.util;
 
 import com.wb.dbstudy.mysql.tablespace.handler.IndexPageHandler;
-import com.wb.dbstudy.mysql.tablespace.handler.TypeFspHdrHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +17,6 @@ public class ToolReflect {
     private static List<Class> getAllImplClass(String classPath, Class clazz){
         List<Class> data = new ArrayList<Class>(){{
             add(IndexPageHandler.class);
-            add(TypeFspHdrHandler.class);
         }};
         return data;
     }

@@ -2,6 +2,7 @@ package com.wb.dbstudy.mysql.tablespace.handler;
 
 import com.wb.dbstudy.mysql.tablespace.bean.page.FileHeader;
 import com.wb.dbstudy.mysql.tablespace.bean.Index;
+import com.wb.dbstudy.mysql.tablespace.type.ByteArr;
 
 /**
  * @author wangbin
@@ -14,12 +15,11 @@ import com.wb.dbstudy.mysql.tablespace.bean.Index;
 public class IndexPageHandler implements PageHandler<Index> {
     @Override
     public Index parse(byte[] data) {
-        System.out.println("parse IndexPage");
         return new Index(data);
     }
 
     @Override
-    public int type() {
+    public ByteArr type() {
         return FileHeader.FILE_PAGE_INDEX;
     }
 }

@@ -5,6 +5,7 @@ import com.wb.dbstudy.mysql.tablespace.type.ByteArr;
 import com.wb.dbstudy.mysql.tablespace.util.ToolByteArray;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 
 /**
  * @author wangbin
@@ -28,6 +29,9 @@ public class BasicBeanFactory {
             int allocateIndex = 0;
             for(int i=0; i<clazzField.length; ++i){
                 Field field = clazzField[i];
+                if(Modifier.isFinal(field.getModifiers())){
+                    continue;
+                }
                 if(!field.isAccessible()){
                     field.setAccessible(true);
                 }

@@ -8,13 +8,13 @@ import lombok.EqualsAndHashCode;
  * @author wangbin
  * @version v1.0.0
  * @title Page
- * @description TODO
+ * @description 索引页
  * @email wangbin69@guazi.com
  * @date 2021/10/24 9:09 上午
  */
 @Data
-@EqualsAndHashCode(callSuper=false)
-public class Index extends Page{
+@EqualsAndHashCode(callSuper = false)
+public class Index extends Page {
     PageHeader pageHeader;
     Infimum infimum;
     Supremum supremum;
@@ -22,7 +22,7 @@ public class Index extends Page{
     FreeSpace freeSpace;
     PageDirectory pageDirectory;
 
-    public Index(byte[] data){
+    public Index(byte[] data) {
         super(data);
     }
 }
